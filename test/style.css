@@ -12,8 +12,9 @@ body {
     text-align: center;
 }
 
+/* Existing styles for the heart */
 #heart {
-    font-size: 2rem;
+    font-size: 24rem; /* Increase the heart size */
     color: red;
     cursor: pointer;
 }
