@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Front Door</title>
-    <link rel="stylesheet" type="text/css" href="https://missriya.github.io/test/style.css">
+    <link rel="stylesheet" href="https://missriya.github.io/test/style.csss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Heart Modal Example</title>
 </head>
+
 <body>
-    <div class="door" id="door">
-        <p>Click the door to open</p>
+    <div class="heart-container">
+        <i class="far fa-heart" id="heart"></i>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close">&times;</span>
+            <div id="letter-content">
+                <!-- Your letter content goes here -->
+                This is the letter content.
+            </div>
+        </div>
     </div>
 
     <script>
-        const door = document.getElementById('door');
-        door.addEventListener('click', () => {
-            window.location.href = 'behinddoor.html';
+        document.getElementById("heart").addEventListener("click", function () {
+            document.getElementById("modal").style.display = "block";
         });
+
+        document.getElementById("close").addEventListener("click", function () {
+            document.getElementById("modal").style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target == document.getElementById("modal")) {
+                document.getElementById("modal").style.display = "none";
+            }
+        });
+
     </script>
 </body>
+
 </html>
