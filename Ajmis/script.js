@@ -1,28 +1,26 @@
-// Get the heart and modal elements
-const heart = document.getElementById("heart");
-const modal = document.getElementById("modal");
+$(document).ready(function() {
+    const $heart = $("#heart");
+    const $modal = $("#modal");
+    const $paper = $(".paper");
 
-// Function to open the modal
-function openModal() {
-    modal.style.display = "block";
-    heart.removeEventListener("click", openModal);
-}
-
-// Function to close the modal
-function closeModal() {
-    modal.style.display = "none";
-    heart.addEventListener("click", openModal);
-}
-
-// Event listener to close the modal when the close button is clicked
-document.getElementById("close").addEventListener("click", closeModal);
-
-// Event listener to close the modal when clicking outside of it
-window.addEventListener("click", function(event) {
-    if (event.target == modal) {
-        closeModal();
+    function openModal() {
+        $modal.fadeIn(500);
+        $paper.fadeIn(500);
     }
-});
 
-// Initially, the modal is closed
-closeModal();
+    function closeModal() {
+        $paper.fadeOut(1000, function() {
+            $modal.fadeOut(500);
+        });
+    }
+
+    $heart.click(openModal);
+
+    $("#close").click(closeModal);
+
+    $modal.click(function(event) {
+        if (event.target === $modal[0]) {
+            closeModal();
+        }
+    });
+});
