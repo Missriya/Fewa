@@ -3,7 +3,7 @@ $(document).ready(function() {
     const $modal = $("#modal");
     const $paper = $(".paper");
     const $music = $("#background-music")[0]; // Get the audio element as a DOM object
-    $music.volume = 0.2; // Set the volume to 0.5 (half volume)
+    $music.volume = 0.05; // Set the volume to 0.5 (half volume)
     function openModal() {
         $modal.fadeIn(500);
         $paper.fadeIn(1000);
